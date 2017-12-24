@@ -1,1 +1,14 @@
 
+{
+  "name": "coderdecoder",
+  "short_name": "coderdecoder",
+  "icons": [ {
+      "src": "assets\/favicon-32x32.png",
+      "sizes": "320x320",
+      "type": "image\/png"
+    }  ],
+  "background_color": "#aaaaaa",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "index.html"
+}
