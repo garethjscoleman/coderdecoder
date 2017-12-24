@@ -59,7 +59,8 @@ self.addEventListener('activate', (e) => {
 self.addEventListener('fetch', (e) => {
       log('Service Worker: Fetch URL ', e.request.url);
       var dataUrl = 'https://spreadsheets.google.com/feeds/list/1kOA4RNBdGbcleiH8Q8yhc_YD8HHeIluH7opTzTPZYcw/od6/public/values?alt=json-in-script&callback=angular.callbacks._0';
-      if (e.request.url.indexOf(dataUrl) > -1) {
+    dataUrl='';
+    if (e.request.url.indexOf(dataUrl) > -1) {
           
          //this time just skip trying to cache this
           if(1===1){
