@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="timeline" >
+<html ng-app="coderdecoder" >
   <head>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <meta charset="utf-8">
@@ -36,11 +36,11 @@
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
-  <body  ng-controller="coderDecoderCtrl as thetimeline">
+  <body  ng-controller="coderDecoderCtrl as thecoderdecoder">
     <md-toolbar >
     <div layout="row" layout-align="start center">
        <div show-gt-xs flex="25">
-        <span >{{thetimeline.title}}</span>
+        <span >{{thecoderdecoder.title}}</span>
       </div>
 
       <!-- fill up the space between left and right area -->
@@ -49,51 +49,37 @@
             <md-icon   class="material-icons">search</md-icon>
             <input  type='text' ng-model="thetimeline.thefilter" placeholder="Search here" ng-style="{'background-color':'white', 'color':'black'}" aria-label="filter"/>
         </md-input-container>
-        <md-slider-container   >
-            <md-slider md-discrete ng-model="thetimeline.scale" step="0.1" min="0.1" max="2" aria-label="adjust scale">
-            </md-slider>            
-        </md-slider-container>          
+           
      </div>
     </md-toolbar >
     <md-content >
       <div layout="row">
-    <!--ui-view="productlist "-->
+    
     <md-content  flex-gt-sm="33" >
 
             <md-content class="md-padding">
                 <form ng-submit="$event.preventDefault()">
                     <md-input-container  class="md-block">
                          <md-icon class="md-default-theme material-icons">search</md-icon>
-                         <input ng-model="thetimeline.thefilter" type="text" placeholder="Search">
+                         <input ng-model="thecoderdecoder.themessage" type="text" placeholder="Your Secret Message">
                     </md-input-container>
                 </form>
-                <h2>Filter the Events
-                <md-icon ng-init="thetimeline.showFilters=false" ng-click="thetimeline.showFilters=!thetimeline.showFilters" class="md-default-theme material-icons">filter_list</md-icon>
-                </h2>
-               <md-content ng-show="thetimeline.showFilters">
-                   By Date
-
-                     <button id="signin-button" ng-click="thetimeline.handleAuthClick()">Sign In</button>
-                     <button id="signout-button" ng-click="thetimeline.handleSignoutClick()">Sign Out</button>
-                 
-               </md-content>
+                
+               
 
 
                <md-list  class="md-default-theme" layout-fill role="list" ng-style="{'height':'288px'}">
                  <div md-virtual-repeat-container>
                    <md-list role="list"  >
-                     <md-list-item   ng-click="thetimeline.setTheEvent($event,theevent)" role="listitem" class="repeated-item md-2-line" md-virtual-repeat="theevent in thetimeline.filteredEvents "  >
+                     <md-list-item   ng-click="thetimeline.setTheEvent($event,theevent)" role="listitem" class="repeated-item md-2-line" md-virtual-repeat="themessage in thetimeline.possibleMessages "  >
                           <md-icon class="md-default-theme material-icons">&#xE878;</md-icon>
                            <div class="md-list-item-text" layout="column">
-                             <p>{{theevent.whendate | date}}</p>
-                             <p>{{theevent.event}}</p>
-                             </div>
+                             <p>{{theMessage}}</p>
+                           </div>
                      </md-list-item>
-                   </md-list  >
+                   </md-list>
                  </div>
-                     
                </md-list>
-
             </md-content>
 
     </md-content>
@@ -103,24 +89,18 @@
 
       <md-card>
         <md-card-content>
-           <h2>{{thetimeline.theselectedevent.event}}</h2>
+           <h2>{{thecoderdecoder.theCipher}}</h2>
            <div layout="column">
             <div layout="row">
-                <span flex="25">When   </span>
-                <span flex="75">{{thetimeline.theselectedevent.whendate | date}}</span>
+                <span flex="25">Message
+              </span>
+                <span flex="75">{{thecoderdecoder.theMessage | date}}</span>
              </div>
             <div layout="row">
-                <span flex="25">Who   </span>
-                <span flex="75">{{thetimeline.theselectedevent.who }}</span>
+                <span flex="25">Cipher   </span>
+                <span flex="75">{{thecoderdecoder.theMessage}}</span>
              </div>
-            <div layout="row">
-                <span flex="25">Where   </span>
-                <span flex="75">{{thetimeline.theselectedevent.where }}</span>
-             </div>
-            <div layout="row">
-                <span flex="25">Details   </span>
-                <span flex="75">{{thetimeline.theselectedevent.notes}}</span>
-             </div>
+            
          </div>
          </md-card-content>
        </md-card>                  
