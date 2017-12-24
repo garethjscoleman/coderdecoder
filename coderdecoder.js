@@ -97,7 +97,7 @@ coderdecoder.controller('coderdecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     
 
     this.thefilter = '';
-    this.title = 'Timeline';
+    this.title = 'CoderDecoder';
     this.scale = 1;
     var scale = this.scale;
     this.divheight = function(date2, date1) {
@@ -185,7 +185,7 @@ coderdecoder.controller('coderdecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     //retrieve the events
 
  
-    handleClientLoad()
+   // handleClientLoad()
     
    
     
