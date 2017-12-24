@@ -97,7 +97,7 @@ coderdecoder.controller('coderdecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     
 
     this.thefilter = '';
-    this.title = 'CoderDecoder';
+    this.title = 'CoderDecoder'; 
     this.scale = 1;
     var scale = this.scale;
     this.divheight = function(date2, date1) {
