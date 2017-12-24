@@ -87,7 +87,8 @@ coderdecoder.controller('coderdecoderCtrl', ['$scope', '$filter', '$http', '$mdD
         }).then(function(response) {
           var range = response.result;
           if (range.values.length > 0) {
-            
+            }
+            )
       }
 
     
