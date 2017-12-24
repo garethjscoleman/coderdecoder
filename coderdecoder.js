@@ -88,7 +88,8 @@ coderdecoder.controller('coderdecoderCtrl', ['$scope', '$filter', '$http', '$mdD
           var range = response.result;
           if (range.values.length > 0) {
             }
-            )
+          }
+         )
       }
 
     
