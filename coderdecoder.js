@@ -50,7 +50,7 @@ coderdecoder.controller('coderdecoderCtrl', ['$scope', '$filter', '$http', '$mdD
        */
        function updateSigninStatus(isSignedIn) {
         if (isSignedIn) {
-          getData();
+          //getData();
         } else {
             thecoderdecoder.theMessage = '';
 
