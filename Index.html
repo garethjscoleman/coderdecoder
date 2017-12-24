@@ -1,0 +1,132 @@
+<!doctype html>
+<html ng-app="timeline" >
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title>Timeline by garethjscoleman</title>
+
+    <meta name="viewport" content="width=device-width">
+    <!-- Angular Material requires Angular.js Libraries -->
+    <script defer>
+  if (navigator.serviceWorker) {
+    navigator.serviceWorker.register('sw.js').then(() => {
+      console.log('Service worker installed')
+    }, err => {
+      console.error('Service worker error:', err);
+    });
+  }   
+      </script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>    
+  <script src="https://apis.google.com/js/api.js"></script>
+
+      <script src="coderdecoder.js"></script>
+    
+     <link href="stylesheets/mainstyle.css" rel="stylesheet">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body  ng-controller="coderDecoderCtrl as thetimeline">
+    <md-toolbar >
+    <div layout="row" layout-align="start center">
+       <div show-gt-xs flex="25">
+        <span >{{thetimeline.title}}</span>
+      </div>
+
+      <!-- fill up the space between left and right area -->
+      <span flex show-gt-xs></span>
+        <md-input-container   md-no-float >
+            <md-icon   class="material-icons">search</md-icon>
+            <input  type='text' ng-model="thetimeline.thefilter" placeholder="Search here" ng-style="{'background-color':'white', 'color':'black'}" aria-label="filter"/>
+        </md-input-container>
+        <md-slider-container   >
+            <md-slider md-discrete ng-model="thetimeline.scale" step="0.1" min="0.1" max="2" aria-label="adjust scale">
+            </md-slider>            
+        </md-slider-container>          
+     </div>
+    </md-toolbar >
+    <md-content >
+      <div layout="row">
+    <!--ui-view="productlist "-->
+    <md-content  flex-gt-sm="33" >
+
+            <md-content class="md-padding">
+                <form ng-submit="$event.preventDefault()">
+                    <md-input-container  class="md-block">
+                         <md-icon class="md-default-theme material-icons">search</md-icon>
+                         <input ng-model="thetimeline.thefilter" type="text" placeholder="Search">
+                    </md-input-container>
+                </form>
+                <h2>Filter the Events
+                <md-icon ng-init="thetimeline.showFilters=false" ng-click="thetimeline.showFilters=!thetimeline.showFilters" class="md-default-theme material-icons">filter_list</md-icon>
+                </h2>
+               <md-content ng-show="thetimeline.showFilters">
+                   By Date
+
+                     <button id="signin-button" ng-click="thetimeline.handleAuthClick()">Sign In</button>
+                     <button id="signout-button" ng-click="thetimeline.handleSignoutClick()">Sign Out</button>
+                 
+               </md-content>
+
+
+               <md-list  class="md-default-theme" layout-fill role="list" ng-style="{'height':'288px'}">
+                 <div md-virtual-repeat-container>
+                   <md-list role="list"  >
+                     <md-list-item   ng-click="thetimeline.setTheEvent($event,theevent)" role="listitem" class="repeated-item md-2-line" md-virtual-repeat="theevent in thetimeline.filteredEvents "  >
+                          <md-icon class="md-default-theme material-icons">&#xE878;</md-icon>
+                           <div class="md-list-item-text" layout="column">
+                             <p>{{theevent.whendate | date}}</p>
+                             <p>{{theevent.event}}</p>
+                             </div>
+                     </md-list-item>
+                   </md-list  >
+                 </div>
+                     
+               </md-list>
+
+            </md-content>
+
+    </md-content>
+    <!--ui-view="product detail" "-->
+
+    <md-content  hide show-gt-sm flex="66">
+
+      <md-card>
+        <md-card-content>
+           <h2>{{thetimeline.theselectedevent.event}}</h2>
+           <div layout="column">
+            <div layout="row">
+                <span flex="25">When   </span>
+                <span flex="75">{{thetimeline.theselectedevent.whendate | date}}</span>
+             </div>
+            <div layout="row">
+                <span flex="25">Who   </span>
+                <span flex="75">{{thetimeline.theselectedevent.who }}</span>
+             </div>
+            <div layout="row">
+                <span flex="25">Where   </span>
+                <span flex="75">{{thetimeline.theselectedevent.where }}</span>
+             </div>
+            <div layout="row">
+                <span flex="25">Details   </span>
+                <span flex="75">{{thetimeline.theselectedevent.notes}}</span>
+             </div>
+         </div>
+         </md-card-content>
+       </md-card>                  
+    </md-content>
+</div>
+      
+      </md-content>
+  </body>
+</html>
