@@ -3,7 +3,7 @@ var coderdecoder = angular.module('coderdecoder', ['ngMaterial']);
 
 
 
-coderdecoder.controller('coderdecoderCtrl', ['$scope', '$filter', '$http', '$mdDialog', '$mdMedia', function($scope, $filter, $http, $mdDialog, $mdMedia) {
+coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdDialog', '$mdMedia', function($scope, $filter, $http, $mdDialog, $mdMedia) {
 
     var thecoderdecoder = this;
     
