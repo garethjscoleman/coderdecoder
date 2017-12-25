@@ -110,14 +110,14 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
 
     
     if (!!localStorage.getItem('codes')) {
-        thetimeline.timelineEvents = JSON.parse(localStorage.getItem('codes'));
+        thecoderdecoder.timelineEvents = JSON.parse(localStorage.getItem('codes'));
     }
 
     this.filteredEvents = $filter('orderBy')($filter('filter')(this.timelineEvents, this.thefilter), 'whendate');
     $scope.$watch('thecoderdecoder.thefilter', function(newVal) {
-        thetimeline.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, thetimeline.thefilter), 'whendate');
+        thecoderdecoder.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, thetimeline.thefilter), 'whendate');
         if (typeof(thecoderdecoder.filteredEvents) != 'undefined') {
-            thetimeline.theselectedevent = thecoderdecoder.filteredEvents[0];
+            thecoderdecoder.theselectedevent = thecoderdecoder.filteredEvents[0];
         }
     });
     this.setTheEvent = function($event, theEvent) {
