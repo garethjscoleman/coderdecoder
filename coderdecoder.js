@@ -115,7 +115,7 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
 
     this.filteredEvents = $filter('orderBy')($filter('filter')(this.timelineEvents, this.thefilter), 'whendate');
     $scope.$watch('thecoderdecoder.thefilter', function(newVal) {
-        thecoderdecoder.filteredEvents = $filter('orderBy')($filter('filter')(thetimeline.timelineEvents, thetimeline.thefilter), 'whendate');
+        thecoderdecoder.filteredEvents = $filter('orderBy')($filter('filter')(thecoderdecoder.timelinevents,thecoderdecoder.thefilter), 'whendate');
         if (typeof(thecoderdecoder.filteredEvents) != 'undefined') {
             thecoderdecoder.theselectedevent = thecoderdecoder.filteredEvents[0];
         }
