@@ -123,10 +123,34 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     $scope.$watch('thecoderdecoder.theMessage', function(newVal) {
         thecoderdecoder.possibleMessages=decode(thecoderdecoder.theMessage);
     });
-    
+    function decodeChar(ciphertype,character)
+    {
+ 
+       var decodedcharacter = chr(((asc(character)-asc('a')+ciphertype)%26));
+       return decodedcharacter;
+    }
+    function decodeMessage(ciphertype,message)
+    {I
+       var iloop=message.length-1;
+       var decodedmessage='';
+       while(iloop>-1)
+       {
+          var decodedcharacter = decodechar(ciphertype,message[iloop]);
+          decodedmessage=decodedmessage+decodedcharacter;
+          iloop=iloop+1;
+       }
+
+    }
     function decode(message){
         var possibleMessages=[];
-        possibleMessages.push(message);
+        var ciphertype=0;
+        while(ciphertype<26)
+        {
+          var decodedMessage = decodeMessage(ciphertype,message);
+
+            possibleMessages.push(decodedMessage);
+            ciphertype=ciphertype+1;
+            }
     return possibleMessages;
     }
     this.setTheEvent = function($event, theEvent) {
