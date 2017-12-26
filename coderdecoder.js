@@ -120,6 +120,15 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
             thecoderdecoder.theselectedevent = thecoderdecoder.filteredEvents[0];
         }
     });
+    $scope.$watch('thecoderdecoder.theMessage', function(newVal) {
+        thecoderdecoder.possibleMessages=decode(thecoderdecoder.theMessage);
+    });
+    
+    function decode(message){
+        var possibleMessages=[];
+        possibleMessages.puah(message);
+    return possibleMessages;
+    }
     this.setTheEvent = function($event, theEvent) {
         this.theselectedevent = theEvent;
 
