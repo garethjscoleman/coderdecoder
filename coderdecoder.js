@@ -130,7 +130,7 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
        return decodedcharacter;
     }
     function decodeMessage(ciphertype,message)
-    {I
+    {
        var iloop=message.length-1;
        var decodedmessage='';
        while(iloop>-1)
