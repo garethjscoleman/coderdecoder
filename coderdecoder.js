@@ -125,7 +125,13 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     });
     function decodeChar(ciphertype,character)
     {
-       var ascii = ((character.charCodeAt(0)-'a'.charCodeAt(0)+ciphertype) % 26)+'a'.charCodeAt(0);
+       var ascii =0;
+       ascii=((character.charCodeAt(0)-'a'.charCodeAt(0)+ciphertype) % 26)+'a'.charCodeAt(0);
+       if (character.charCodeAt(0)>='z'.charCodeAt(0) || character.charCodeAt(0)<='a'.charCodeAt(0) )
+       {
+           ascii=character.charCodeAt(0);
+       }
+          
        var decodedcharacter = String.fromCharCode( ascii);
        return decodedcharacter;
     }
