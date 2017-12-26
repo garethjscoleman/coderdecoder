@@ -126,7 +126,7 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     
     function decode(message){
         var possibleMessages=[];
-        possibleMessages.puah(message);
+        possibleMessages.push(message);
     return possibleMessages;
     }
     this.setTheEvent = function($event, theEvent) {
