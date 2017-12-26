@@ -139,6 +139,7 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
           decodedmessage=decodedmessage+decodedcharacter;
           iloop=iloop-1;
        }
+       return decodedmessage;
 
     }
     function decode(message){
