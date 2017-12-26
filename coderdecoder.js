@@ -126,7 +126,7 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     function decodeChar(ciphertype,character)
     {
  
-       var decodedcharacter = chr(((asc(character)-asc('a')+ciphertype)%26));
+       var decodedcharacter = String.fromCharCode((character.charCodeAt(0)-'a'.charCodeAt(0)+ciphertype) % 26);
        return decodedcharacter;
     }
     function decodeMessage(ciphertype,message)
