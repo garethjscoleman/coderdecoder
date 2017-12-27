@@ -72,9 +72,10 @@
                  <div md-virtual-repeat-container>
                    <md-list role="list"  >
                      <md-list-item   le="listitem" class="repeated-item" md-virtual-repeat="theMessage in thecoderdecoder.possibleMessages "  >
-                          <md-icon class="md-default-theme material-icons">lock_outline</md-icon>
+                          
                            <div class="md-list-item-text" layout="column">
-                             <p>{{theMessage}}</p>
+                             <md-icon class="md-default-theme material-icons">lock_outline</md-icon>
+                             <span>{{theMessage}}</span>
                            </div>
                      </md-list-item>
                    </md-list>
