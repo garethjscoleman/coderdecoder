@@ -63,6 +63,17 @@
                          <md-icon class="md-default-theme material-icons">search</md-icon>
                          <input ng-model="thecoderdecoder.theMessage" type="text" placeholder="Your Secret Message">
                     </md-input-container>
+                  
+                  <md-radio-group ng-model="selected">
+
+  <md-radio-button ng-repeat="d in cipherOptions" ng-value="d.value" aria-label="{{ d.label }}">
+
+         {{ d.label }}
+
+  </md-radio-button>
+
+</md-radio-group>
+                  
                 </form>
                 
                
