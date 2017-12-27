@@ -38,7 +38,7 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
        while(iloop>-1)
        {
           var decodedcharacter = decodeChar(ciphertype,message[iloop]);
-          decodedmessage=decodedmessage+decodedcharacter;
+          decodedmessage= decodedcharacter + decodedmessage;
           iloop=iloop-1;
        }
        return decodedmessage;
