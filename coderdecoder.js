@@ -49,7 +49,7 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
         var ciphertype=0;
         while(ciphertype<26)
         {
-          var decodedMessage = decodeMessage(ciphertype,message);
+          var decodedMessage = decodeMessage(ciphertype,message.toLowerCase());
 
             possibleMessages.push(decodedMessage);
             ciphertype=ciphertype+1;
