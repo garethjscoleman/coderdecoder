@@ -22,26 +22,35 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     $scope.$watch('thecoderdecoder.theMessage', function(newVal) {
         thecoderdecoder.possibleMessages=decode(newVal);
     });
-    function decodeChar(ciphertype,character)
+    function decodeChar(characterpos,ciphershift,ciphertype,character)
     {
-       var ascii =0;
-       ascii=((character.charCodeAt(0)-'a'.charCodeAt(0)+ciphertype) % 26)+'a'.charCodeAt(0);
-       if (character.charCodeAt(0)>='z'.charCodeAt(0) || character.charCodeAt(0)<='a'.charCodeAt(0) )
+       if (ciphertype==0 || ciphertype==1)
        {
+         var ascii =0;
+         ascii=((character.charCodeAt(0)-'a'.charCodeAt(0)+ciphershift) % 26)+'a'.charCodeAt(0);
+         if (character.charCodeAt(0)>='z'.charCodeAt(0) || character.charCodeAt(0)<='a'.charCodeAt(0) )
+         {
            ascii=character.charCodeAt(0);
-       }
+         }
           
-       var decodedcharacter = String.fromCharCode( ascii);
-       return decodedcharacter;
+         var decodedcharacter = String.fromCharCode( ascii);
+         return decodedcharacter;
+       }
     }
-    function decodeMessage(ciphertype,message)
+    function decodeMessage(ciphertype,ciphershift,message)
     {
        var iloop=message.length-1;
        var decodedmessage='';
        while(iloop>-1)
        {
-          var decodedcharacter = decodeChar(ciphertype,message[iloop]);
-          decodedmessage= decodedcharacter + decodedmessage;
+          var decodedcharacter = decodeChar(ciphertype,iloop,message[iloop]);
+          if (ciphertype==0){
+             decodedmessage= decodedcharacter + decodedmessage;
+          } 
+           else
+          {
+              decodedmessage= decodedmessage + decodedcharacter;
+          }
           iloop=iloop-1;
        }
        return decodedmessage;
@@ -49,13 +58,13 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     }
     function decode(message){
         var possibleMessages=[];
-        var ciphertype=0;
-        while(ciphertype<26)
+        var ciphershift=0;
+        while(ciphershift<26)
         {
-          var decodedMessage = decodeMessage(ciphertype,message.toLowerCase());
+          var decodedMessage = decodeMessage(0, ciphershift,message.toLowerCase());
 
             possibleMessages.push(decodedMessage);
-            ciphertype=ciphertype+1;
+            ciphershift=ciphershift+1;
             }
     return possibleMessages;
     }
