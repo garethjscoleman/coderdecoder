@@ -59,8 +59,8 @@
 
             <md-content class="md-padding">
                 <form ng-submit="$event.preventDefault()">
-                  
-                  
+                 <div layout="column">
+                  <div layout="row">
                   
                   
                   
@@ -74,7 +74,8 @@
                          
                       
                     </md-input-container>
-                  
+                    </div>
+                  <div layout="row">
                     <md-input-container  class="md-block" >
                   <md-radio-group ng-model="selected">
 
@@ -94,8 +95,10 @@
                             </md-radio-button>
 
                          </md-radio-group>
+                      
                   </md-input-container>
-                  
+                  </div>
+                   </div>
                 </form>
                 
                
