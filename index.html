@@ -59,6 +59,9 @@
 
             <md-content class="md-padding">
                 <form ng-submit="$event.preventDefault()">
+                  {{thecoderdecoder.cipherOptions}}
+                  
+                  
                   <md-radio-group ng-model="selected">
 
                     <md-radio-button ng-repeat="d in thecodeedecoder.cipherOptions" ng-value="d.value" aria-label="{{ d.label }}">
