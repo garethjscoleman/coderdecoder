@@ -11,11 +11,10 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     this.theMessage = 'Hello World';
     this.title = 'Coder Decoder'; 
     this.cipherOptions=[
-        {'label':'Ceasar','value':1},
-        {'label':'Ceasar Reverse','value':2}
+        {label:'Ceasar',value:1},
+        {label:'Ceasar Reverse',value:2}
         ];
-    
-
+   
     
     
     
