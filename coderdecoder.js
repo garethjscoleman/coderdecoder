@@ -22,7 +22,7 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     $scope.$watch('thecoderdecoder.theMessage', function(newVal) {
         thecoderdecoder.possibleMessages=decode(newVal);
     });
-    function decodeChar(characterpos,ciphershift,ciphertype,character)
+    function decodeChar(characterpos, ciphershift,ciphertype,character)
     {
        if (ciphertype==0 || ciphertype==1)
        {
@@ -37,13 +37,13 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
          return decodedcharacter;
        }
     }
-    function decodeMessage(ciphertype,ciphershift,message)
+    function decodeMessage(ciphertype, ciphershift, message)
     {
        var iloop=message.length-1;
        var decodedmessage='';
        while(iloop>-1)
        {
-          var decodedcharacter = decodeChar(ciphertype,iloop,message[iloop]);
+          var decodedcharacter = decodeChar(iloop, ciphertype, message[iloop]);
           if (ciphertype==0){
              decodedmessage= decodedcharacter + decodedmessage;
           } 
