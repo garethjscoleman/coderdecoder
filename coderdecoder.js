@@ -18,7 +18,9 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
    
     
     
-    
+    $scope.$watch('thecoderdecoder.cipherType', function(newVal) {
+        thecoderdecoder.possibleMessages=decode( thecoderdecoder.theMessage, newVal);
+    });
     $scope.$watch('thecoderdecoder.theMessage', function(newVal) {
         thecoderdecoder.possibleMessages=decode(newVal, thecoderdecoder.cipherType);
     });
