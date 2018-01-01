@@ -59,11 +59,6 @@
 
             <md-content class="md-padding">
                 <form ng-submit="$event.preventDefault()">
-                    <md-input-container  class="md-block">
-                         <md-icon class="md-default-theme material-icons">search</md-icon>
-                         <input ng-model="thecoderdecoder.theMessage" type="text" placeholder="Your Secret Message">
-                    </md-input-container>
-                  
                   <md-radio-group ng-model="selected">
 
                     <md-radio-button ng-repeat="d in thecodeedecoder.cipherOptions" ng-value="d.value" aria-label="{{ d.label }}">
@@ -73,6 +68,13 @@
                     </md-radio-button>
 
                   </md-radio-group>
+                  
+                    <md-input-container  class="md-block">
+                         <md-icon class="md-default-theme material-icons">search</md-icon>
+                         <input ng-model="thecoderdecoder.theMessage" type="text" placeholder="Your Secret Message">
+                    </md-input-container>
+                  
+                  
                   
                 </form>
                 
