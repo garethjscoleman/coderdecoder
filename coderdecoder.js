@@ -11,15 +11,15 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
     this.theMessage = 'Hello World';
     this.title = 'Coder Decoder'; 
     this.cipherOptions=[
-        {label:'Ceasar',value:1},
-        {label:'Ceasar Reverse',value:2}
+        {label:'Ceasar',value:0},
+        {label:'Ceasar Reverse',value:1}
         ];
    
     
     
     
     $scope.$watch('thecoderdecoder.theMessage', function(newVal) {
-        thecoderdecoder.possibleMessages=decode(newVal);
+        thecoderdecoder.possibleMessages=decode(newVal, thecoderdecoder.cipherType);
     });
     function decodeChar(characterpos, ciphershift,ciphertype,character)
     {
@@ -55,12 +55,12 @@ coderdecoder.controller('coderDecoderCtrl', ['$scope', '$filter', '$http', '$mdD
        return decodedmessage;
 
     }
-    function decode(message){
+    function decode(message, cipherType){
         var possibleMessages=[];
         var ciphershift=0;
         while(ciphershift<26)
         {
-          var decodedMessage = decodeMessage(0, ciphershift,message.toLowerCase());
+          var decodedMessage = decodeMessage(cipherType, ciphershift,message.toLowerCase());
 
             possibleMessages.push(decodedMessage);
             ciphershift=ciphershift+1;
